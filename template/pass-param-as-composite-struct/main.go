@@ -11,6 +11,16 @@ type sage struct {
 	Motto string
 }
 
+type car struct {
+	Brand string
+	Doors int
+}
+
+type items struct {
+	Wisdom    []sage
+	Transport []car
+}
+
 var tpl *template.Template
 
 func init() {
@@ -27,7 +37,16 @@ func main() {
 			Motto: "No corruption"},
 	}
 
-	err := tpl.Execute(os.Stdout, sages)
+	cars := []car{
+		{Brand: "BWM", Doors: 4},
+		{Brand: "Ferrari", Doors: 2},
+	}
+
+	data := items{
+		Wisdom: sages, Transport: cars,
+	}
+
+	err := tpl.Execute(os.Stdout, data)
 	if err != nil {
 		log.Fatalln(err)
 	}
