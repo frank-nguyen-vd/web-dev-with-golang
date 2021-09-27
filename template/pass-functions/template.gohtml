@@ -1,0 +1,13 @@
+<h1>Wisdom</h1>
+<ul>
+  {{range .Wisdom}}
+  <li>Name: {{uc .Name}} Motto: {{.Motto}} </li>
+  {{end}}
+</ul>
+
+<h1>Transport</h1>
+<ul>
+  {{range .Transport}}
+  <li>Brand: {{ft .Brand}} Doors: {{.Doors}} </li>
+  {{end}}
+</ul>
